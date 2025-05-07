@@ -1,0 +1,15 @@
+LAN driver:
+--> Add usb LAN device
+  --> sudo apt update
+  --> sudo apt upgrade
+  --> sudo apt install build-essential 
+  --> sudo apt install --reinstall gcc-12)
+--> Download r8125 from https://www.realtek.com/Download/List?cate_id=584
+  --> tar xjvf r8125-9.015.00.tar.bz2
+  --> cd r8125-9.015.00/
+  --> sudo ./autorun.sh
+
+nVidia 5090 driver:
+--> Download from https://www.nvidia.com/zh-tw/drivers/details/243330/
+--> chmod +x NVIDIA-Linux-x86_64-570.144.run
+--> sudo ./NVIDIA-Linux-x86_64-570.144.run
