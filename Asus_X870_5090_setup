@@ -16,8 +16,10 @@ nVidia 5090 driver:
 
 Open Television
 --> Install pip for python3.10
+  --> sudo python3 get-pip.py
 --> pip3 install torch torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
 --> Edit requirements.txt, remove torch and torchvision
+  --> pip3 install -r requirements.txt
 --> Edit act/imitate_episodes.py, add 
   import sys
   sys.path.append('./detr')
