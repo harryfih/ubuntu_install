@@ -3,7 +3,7 @@ LAN driver:
   --> sudo apt update
   --> sudo apt upgrade
   --> sudo apt install build-essential 
-  --> sudo apt install --reinstall gcc-12)
+  --> sudo apt install --reinstall gcc-12
 --> Download r8125 from https://www.realtek.com/Download/List?cate_id=584
   --> tar xjvf r8125-9.015.00.tar.bz2
   --> cd r8125-9.015.00/
@@ -13,3 +13,13 @@ nVidia 5090 driver:
 --> Download from https://www.nvidia.com/zh-tw/drivers/details/243330/
 --> chmod +x NVIDIA-Linux-x86_64-570.144.run
 --> sudo ./NVIDIA-Linux-x86_64-570.144.run
+
+Open Television
+--> Install pip for python3.10
+--> pip3 install torch torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
+--> Edit requirements.txt, remove torch and torchvision
+--> Edit act/imitate_episodes.py, add 
+  import sys
+  sys.path.append('./detr')
+--> Test training
+  -->python3 imitate_episodes.py --policy_class ACT --kl_weight 10 --chunk_size 60 --hidden_dim 512 --batch_size 45 --dim_feedforward 3200 --num_epochs 50000 --lr 5e-5 --seed 0 --taskid 00 --exptid 01-sample-expt --no_wandb
