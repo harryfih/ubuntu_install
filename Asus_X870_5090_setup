@@ -9,6 +9,23 @@ LAN driver:
   --> cd r8125-9.015.00/
   --> sudo ./autorun.sh
 
+--> Disable EEE??
+sudo ethtool --show-eee en0
+sudo ethtool --set-eee en0 eee off
+next to ensure it stays fixed:
+sudo vim /etc/systemd/system/disable-eee.service
+```
+[Unit]
+Description=Disable Energy-Efficient Ethernet for en0
+After=network.target
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ethtool --set-eee en0 eee off
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
+
+
 nVidia 5090 driver:
 --> Download from https://www.nvidia.com/zh-tw/drivers/details/243330/
 --> chmod +x NVIDIA-Linux-x86_64-570.144.run
