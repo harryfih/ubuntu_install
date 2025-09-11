@@ -1,0 +1,14 @@
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+sudo apt update
+sudo apt install ros-humble-rmw-cyclonedds-cpp
+
+source /opt/ros/humble/setup.bash
+export ROS_DOMAIN_ID=151
+
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp; export CYCLONEDDS_URI="<CycloneDDS><Domain><General><NetworkInterfaceAddress>192.168.0.88</NetworkInterfaceAddress></General></Domain></CycloneDDS>"
+
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp; export CYCLONEDDS_URI="<CycloneDDS><Domain><General><NetworkInterfaceAddress>192.168.0.156</NetworkInterfaceAddress></General></Domain></CycloneDDS>"
+
+ros2 topic echo /zed_camera_left/image_raw
